@@ -5,7 +5,7 @@
  * Plugin URI: https://www.importwp.com
  * Description: Allow Import WP to import zip files containing xml and csv files.
  * Author: James Collings <james@jclabs.co.uk>
- * Version: 0.1.0 
+ * Version: 0.1.1 
  * Author URI: https://www.importwp.com
  * Network: True
  */
