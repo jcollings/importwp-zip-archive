@@ -5,7 +5,7 @@
  * Plugin URI: https://www.importwp.com
  * Description: Allow Import WP to import zip files containing xml and csv files.
  * Author: James Collings <james@jclabs.co.uk>
- * Version: 0.1.2 
+ * Version: 1.0.0 
  * Author URI: https://www.importwp.com
  * Network: True
  */
@@ -40,6 +40,16 @@ function iwp_zip_archive_setup()
     $base_path = dirname(__FILE__);
 
     require_once $base_path . '/setup.php';
+
+    // Install updater
+    if (file_exists($base_path . '/updater.php') && !class_exists('IWP_Updater')) {
+        require_once $base_path . '/updater.php';
+    }
+
+    if (class_exists('IWP_Updater')) {
+        $updater = new IWP_Updater(__FILE__, 'importwp-zip-archive');
+        $updater->initialize();
+    }
 }
 add_action('plugins_loaded', 'iwp_zip_archive_setup', 9);
 
