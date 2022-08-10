@@ -18,7 +18,7 @@ function iwp_zip_read_file_matching_ext($input_filepath)
                 $filename = $zip->getNameIndex($i);
 
                 // TODO: we should be able to get file based on desired extension
-                if (preg_match('/\.(xml|csv)$/', $filename) === 0) {
+                if (preg_match('/\.(xml|csv)$/', $filename) === 0 && $zip->numFiles > 1) {
                     continue;
                 }
 
